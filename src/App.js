@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Search from './components/Search/Search'
 import User from './components/User/User'
 import RepoCard from './components/RepoCard/Repo-card'
+const PAGE_SIZE=20;
 class App extends Component {
   state={
     user:null,
@@ -16,7 +17,7 @@ class App extends Component {
 fetchRepos=async(username)=>{
   try{
     const {page}=this.state
-    const res=await fetch(`https://api.github.com/users/${username}/repos?page=${page}`)
+    const res=await fetch(`https://api.github.com/users/${username}/repos?page=${page}&per_page=${PAGE_SIZE}`)
     if(res.ok){
       const data=await res.json();
       return {data,page:page+1}
@@ -43,7 +44,7 @@ fetchRepos=async(username)=>{
           user:data,
           repos:repos.data,
           loading:false,
-          page:repos.page,
+          page:2,
         });
       }
         const error= await res.json();
@@ -75,8 +76,11 @@ fetchRepos=async(username)=>{
   }
 
   render() {
-    const {repos,user,error,loading}=this.state
+    const {repos,user,error,loading,page}=this.state
     console.log(this.state.user)
+    console.log(this.state.repos)
+    
+    const renderRepos=!error && user && repos.length>0
     return (
       <div>
         <Search fetchData={this.fetchData}/>
@@ -89,8 +93,19 @@ fetchRepos=async(username)=>{
       {
         !error && !loading && user && <User user={user}/>
       }
+      { renderRepos && (
+        <React.Fragment>
+        <div className="mb-4">
+        {[...new Array(Math.ceil(user.public_repos/PAGE_SIZE)) ].map((_,index)=>
+         <button  className="btn btn-success mr-2" key={index}>{index+1}</button> 
+          )}
+          </div>
+          </React.Fragment>
+      )
+      }
+
       {repos.length>0 && !error && repos.map(repo=><RepoCard key={repo.id} repo={repo}/>)}
-      <button className="btn btn-success" onClick={this.loadmore}>Load More</button>
+      {  !error && !loading && user && page*PAGE_SIZE < user.public_repos && <button className="btn btn-success" onClick={this.loadmore}>Load More</button>}
       </div>
     );
   }
