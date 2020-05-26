@@ -1,0 +1,25 @@
+.dp{
+    height: 245px;
+    width: 283px;
+    
+}
+
+.cardd{
+    width: 18rem;
+    height: 27rem;
+    margin-bottom: 3rem;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    transition: transform 0.5s;
+
+}
+.cardd:hover{
+    transform: scale(1.1);
+}
+.con{
+    height:27px;
+}
+
+.overf{
+    overflow: hidden;
+}

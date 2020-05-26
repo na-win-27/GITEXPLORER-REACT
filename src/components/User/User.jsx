@@ -1,13 +1,17 @@
 import React from 'react';
+import './user.css'
 
 const User = ({user}) => {
     return (
-        <div className="card">
+        <div className="card cardd">
+        
+        <a href={user.html_url} target="_blank" ><img className="card-image-top dp" src={user.avatar_url} alt=""/></a>
         <div className="card-body">
-        <img src={user.avatar_url} alt=""/>
-        <h2>{user.name} </h2>
-        <p>{user.company}</p>
-        <p>{user.bio}</p>
+        <h4 className="card-title">{user.name} </h4>
+        <p className="card-text">{user.company}</p>
+        <a href={user.html_url} target="_blank" className="card-text">{user.login}</a>
+        <p className="card-text overf con" >{user.bio}</p>
+        <p className="card-text">Public Repos: {user.public_repos}</p>
         </div>    
         </div>
     );

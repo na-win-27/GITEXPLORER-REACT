@@ -10,8 +10,8 @@ class App extends Component {
     repos:[],
     loading:false,
     page:1
-    
   }
+  
 
 
 fetchRepos=async(username)=>{
@@ -93,18 +93,10 @@ fetchRepos=async(username)=>{
       {
         !error && !loading && user && <User user={user}/>
       }
-      { renderRepos && (
-        <React.Fragment>
-        <div className="mb-4">
-        {[...new Array(Math.ceil(user.public_repos/PAGE_SIZE)) ].map((_,index)=>
-         <button  className="btn btn-success mr-2" key={index}>{index+1}</button> 
-          )}
-          </div>
-          </React.Fragment>
-      )
-      }
+      
+      
 
-      {repos.length>0 && !error && repos.map(repo=><RepoCard key={repo.id} repo={repo}/>)}
+     <div className="row"> {repos.length>0 && !error && repos.map(repo=><RepoCard key={repo.id} repo={repo}/>)}</div>
       {  !error && !loading && user && page*PAGE_SIZE < user.public_repos && <button className="btn btn-success" onClick={this.loadmore}>Load More</button>}
       </div>
     );
