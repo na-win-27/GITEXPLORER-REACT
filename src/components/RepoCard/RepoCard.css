@@ -7,10 +7,18 @@
 }
 
 .n{
-    background-color: aquamarine;
+    background-color: whitesmoke;
     height: 220px;
 }
 .ne:hover{
-    transform: scale(1.1);
+    transform: scale(1.02);
     box-shadow:5px 10px #888888;
+}
+
+.link{
+    color:gray;
+}
+
+.link:hover{
+    color: #888888;
 }

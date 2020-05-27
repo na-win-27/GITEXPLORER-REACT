@@ -1,23 +1,28 @@
 .dp{
     height: 245px;
     width: 283px;
+    border-radius: 100px;
     
 }
 
 .cardd{
+    border-radius: 100px;
+    position: absolute;
+    left: 40px;
     border: 0;
     width: 18rem;
-    height: 28rem;
+    height: 36rem;
     margin-bottom: 3rem;
     margin-top: 1.5rem;
     margin-left: 1rem;
     transition: transform 0.5s;
-    
+    box-shadow:5px 10px #888888;
+    overflow: hidden;
 
 }
 .cardd:hover{
-    transform: scale(1.1);
-    box-shadow:5px 10px #888888;
+    transform: scale(1.04);
+    box-shadow:10px 10px #888888;
 }
 .con{
     height:27px;
@@ -26,3 +31,4 @@
 .overf{
     overflow: hidden;
 }
+

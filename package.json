@@ -2,13 +2,16 @@
   "name": "git-explorer",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://na-win-27.github.io/GITEXPLORER-REACT",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",
+    "gh-pages": "^2.2.0",
     "hashmap": "^2.4.0",
     "patternomaly": "^1.3.2",
     "react": "^16.13.1",
@@ -21,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pre-deploy":"npm run build",
+    "deploy":"gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

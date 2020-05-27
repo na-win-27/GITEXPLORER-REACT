@@ -11,6 +11,9 @@ const User = ({user}) => {
         <p className="card-text">{user.company}</p>
         <a href={user.html_url} target="_blank" className="card-text">{user.login}</a>
         <p className="card-text overf con" >{user.bio}</p>
+        <p className="card-text overf con" >{user.location}</p>
+        <p className="card-text overf con" >Followers: {user.followers}</p>
+        <p className="card-text overf con" >Following: {user.following}</p>
         <p className="card-text">Public Repos: {user.public_repos}</p>
         </div>    
         </div>

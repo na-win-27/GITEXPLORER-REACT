@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Search.css'
 class Search extends Component {
     state={
         Username:"na-win-27",
@@ -15,7 +15,7 @@ class Search extends Component {
         const {Username}=this.state
         return (
             
-            <div className="bg-dark">
+            <div className="c">
             <div className="container py-5">
             <div className="row">
             <div className="col-8 offset-2 text-center">
@@ -32,7 +32,7 @@ class Search extends Component {
             <button onClick={()=>{
                 fetchData(Username)
             }}
-             className="btn btn-large btn-success">Search</button>
+             className="btn btn-large btn-dark">Search</button>
             </div>
             </div>
             </div>

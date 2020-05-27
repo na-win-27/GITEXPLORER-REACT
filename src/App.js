@@ -99,7 +99,7 @@ fetchRepos=async(username)=>{
       
 
  <div className="container-fluid">    <div className="row "> {repos.length>0 && !error && repos.map(repo=><RepoCard key={repo.id} repo={repo}/>)}</div></div>
-      {  !error && !loading && user && page*PAGE_SIZE < user.public_repos && <button className="btn btn-success" onClick={this.loadmore}>Load More</button>}
+      {  !error && !loading && user && page*PAGE_SIZE < user.public_repos && <div class="d-flex justify-content-center"><button className="btn btn-light" onClick={this.loadmore}>Load More</button></div>}
       <Sugar/>
       </div>
      

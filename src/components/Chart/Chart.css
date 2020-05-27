@@ -1,16 +1,27 @@
 .chart{
     position: absolute;
-    top: 180px;
-    left: 530px;     
-    background-color: antiquewhite;
+    top: 160px;
+    left: 590px;     
+    background-color:whitesmokes;
     transition: transform 0.5s;
+    z-index: 1000;
+    height: 29rem;
+  
     
 
 }
 .chart:hover{
-    transform: scale(1.1);
-    box-shadow: 5px 10px gray;
+    transform: scale(1.05);
 }
-.ch{
-    background-color: antiquewhite;
+
+.info{
+    color: black;
+    text-align: center;
+    font-weight: 800;
+}
+
+.lan{
+    color: black;
+    font-weight: 700;
+    text-align: start;
 }

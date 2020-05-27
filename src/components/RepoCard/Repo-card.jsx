@@ -7,7 +7,7 @@ const RepoCard = ({repo}) => {
         <div className="col-sm-5 ">
             <div className="card ne">
             <div className="card-body n">
-           <a target="_blank" href={repo.html_url}> <h3>{repo.full_name}</h3></a>
+           <a className="link" target="_blank" href={repo.html_url}> <h3>{repo.full_name}</h3></a>
             <p><strong>Stars:</strong> {repo.stargazers_count}</p>
             <p><strong>Watchers:</strong> {repo.watchers_count}</p>
             <p className="card-text">{repo.description}</p>
