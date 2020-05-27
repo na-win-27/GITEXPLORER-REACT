@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import {Pie} from 'react-chartjs-2'
 import './Chart.css'
+import LangRepo from '../LangRepo/LangRepo'
 import colors from './colors'
 
 
 class Chart extends Component {
+    
+    
+    
     state={
         repos:[],
-        labels:[],
         dataset:[{data:[]}],
         pagec:0,
         loading:false,
-        hmap:null
+        hmap:null,
+        language:null
     }
     componentDidMount(){
     const userna=this.props.user.login
@@ -38,7 +42,7 @@ class Chart extends Component {
            })
            var map={}
            this.state.repos.map(repo=>{
-               var map={}
+            
                repo.map(re=>{
                    
                    if(re.language in map){
@@ -65,16 +69,31 @@ class Chart extends Component {
          }
        })
        }
+    graphClickEvent=(event, array)=>{
+        if(array[0]){
+           
+           const b=array[0]._model.label
+            console.log(b)
+            this.setState({
+                language:b
+            })
+           
+        }
+    }
+     
+
+
     render() {
-        
         console.log(this.state)
         return (
+            <div>
+            <LangRepo repos={this.state.repos} lang={this.state.language}/>
             <div className="chart">
             {this.state.hmap && 
                
                 <div className="">
                 <p className="info">THE USERS RECENT REPOSITRIES STATS</p>
-                <p className="lan">LANGUAGES:</p>
+             
                 <Pie 
                 className="ch"
                 data={{
@@ -89,14 +108,30 @@ class Chart extends Component {
                 width={650}
                 options={
                     {
+                        legend:{
+                            display:true,
+                            fullWidth:true,
+                            fontfamily:'Helvetica Neue',
+                            align:'start',
+                            usePointStyle:false,
+                        },
+                        title:{
+                            display:true,
+                            text:"LANGUAGES",
+                            padding:10,
+
+                        },
                     animation:{
+                        easing:'easeOutQuart',
                         animateScale:true,
+
                     },
+                    'onClick':this.graphClickEvent,
                     layout:{
                         padding: {
                             left: 20,
                             right: 20,
-                            top: 0,
+                            top: 10,
                             bottom: 20,
                           }
                     },
@@ -107,6 +142,7 @@ class Chart extends Component {
                         borderColor: 'rgba(0, 0, 0, 0)',
                         bodyFontColor: 'white',
                         titleFontColor: 'white',
+                        titleFontStyle:'bold',
                         events: ['mousemove', 'mouseout', 'touchstart', 'touchmove', 'touchend'],
                         callbacks: {
                           label: function (tooltipItem, data) {
@@ -134,6 +170,7 @@ class Chart extends Component {
                 </div>
             }
                
+            </div>
             </div>
         );
     }

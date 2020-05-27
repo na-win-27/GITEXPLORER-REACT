@@ -2,7 +2,6 @@
   "name": "git-explorer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://na-win-27.github.io/GITEXPLORER-REACT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -24,9 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "pre-deploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
