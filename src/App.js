@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Search from './components/Search/Search'
 import User from './components/User/User'
 import RepoCard from './components/RepoCard/Repo-card'
+import { Sugar } from 'react-preloaders';
+import Chart from './components/Chart/Chart'
 const PAGE_SIZE=20;
 class App extends Component {
   state={
@@ -9,10 +11,8 @@ class App extends Component {
     error:null,
     repos:[],
     loading:false,
-    page:1
+    page:1,
   }
-  
-
 
 fetchRepos=async(username)=>{
   try{
@@ -39,13 +39,17 @@ fetchRepos=async(username)=>{
         const repos=await this.fetchRepos(username);
         if (res.ok && repos){
         const data=await res.json();
-        console.log(repos)
+        
         return this.setState({
           user:data,
           repos:repos.data,
           loading:false,
           page:2,
         });
+
+        
+ 
+
       }
         const error= await res.json();
     
@@ -76,11 +80,7 @@ fetchRepos=async(username)=>{
   }
 
   render() {
-    const {repos,user,error,loading,page}=this.state
-    console.log(this.state.user)
-    console.log(this.state.repos)
-    
-    const renderRepos=!error && user && repos.length>0
+    const {repos,user,error,loading,page}=this.state    
     return (
       <div>
         <Search fetchData={this.fetchData}/>
@@ -93,12 +93,16 @@ fetchRepos=async(username)=>{
       {
         !error && !loading && user && <User user={user}/>
       }
-      
+      {
+        !error && !loading  && user &&<Chart user={user} />
+     }
       
 
-     <div className="row"> {repos.length>0 && !error && repos.map(repo=><RepoCard key={repo.id} repo={repo}/>)}</div>
+ <div className="container-fluid">    <div className="row "> {repos.length>0 && !error && repos.map(repo=><RepoCard key={repo.id} repo={repo}/>)}</div></div>
       {  !error && !loading && user && page*PAGE_SIZE < user.public_repos && <button className="btn btn-success" onClick={this.loadmore}>Load More</button>}
+      <Sugar/>
       </div>
+     
     );
   }
 }

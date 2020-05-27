@@ -1,3 +1,16 @@
-.cardd{
+.ne{
+    position: absolute;
+    left: 70px;
     margin: 1rem;
+    transition: transform 0.5s;
+    
+}
+
+.n{
+    background-color: aquamarine;
+    height: 220px;
+}
+.ne:hover{
+    transform: scale(1.1);
+    box-shadow:5px 10px #888888;
 }

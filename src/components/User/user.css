@@ -5,16 +5,19 @@
 }
 
 .cardd{
+    border: 0;
     width: 18rem;
-    height: 27rem;
+    height: 28rem;
     margin-bottom: 3rem;
     margin-top: 1.5rem;
     margin-left: 1rem;
     transition: transform 0.5s;
+    
 
 }
 .cardd:hover{
     transform: scale(1.1);
+    box-shadow:5px 10px #888888;
 }
 .con{
     height:27px;
