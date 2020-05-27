@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Pie} from 'react-chartjs-2'
 import './Chart.css'
+import colors from './colors'
 
 
 class Chart extends Component {
@@ -70,23 +71,22 @@ class Chart extends Component {
         return (
             <div className="chart">
             {this.state.hmap && 
+                <div className="">
                 <Pie 
                 className="ch"
                 data={{
                     labels:Object.keys(this.state.hmap),
                     datasets:[{
                         data:Object.values(this.state.hmap),
-                        backgroundColor: [
-                            "#f38b4a",
-                            "#56d798",
-                            "#ff8397",
-                            "#6970d5" 
-                          ]
+                        backgroundColor: colors
+                           
                     }],
                 }}
                 height={400}
                 width={500}
+
                 />
+                </div>
             }
                
             </div>

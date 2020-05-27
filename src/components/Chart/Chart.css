@@ -1,8 +1,16 @@
 .chart{
     position: absolute;
-    top: 190px;
+    top: 180px;
     left: 530px;     
+    background-color: antiquewhite;
+    transition: transform 0.5s;
+    
+
+}
+.chart:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 10px gray;
 }
 .ch{
-    box-shadow: 50px 100px black;
+    background-color: antiquewhite;
 }

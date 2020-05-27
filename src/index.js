@@ -6,9 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import "bootstrap/dist/css/bootstrap.min.css"
 
 ReactDOM.render(
+  <div>
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <App  />
+  </React.StrictMode>
+  </div>,
   document.getElementById('root')
 );
 
