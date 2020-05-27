@@ -12,6 +12,7 @@ class App extends Component {
     repos:[],
     loading:false,
     page:1,
+    show:false
   }
 
 fetchRepos=async(username)=>{
@@ -96,10 +97,15 @@ fetchRepos=async(username)=>{
       {
         !error && !loading  && user &&<Chart user={user} />
      }
+
+     {
+       !this.state.show &&  user &&
+       <div className="d-flex justify-content-center"><button className="btn btn-light" onClick={()=>this.setState({show:true})}>Show Repositories</button></div>
+     }
       
 
- <div className="container-fluid">    <div className="row "> {repos.length>0 && !error && repos.map(repo=><RepoCard key={repo.id} repo={repo}/>)}</div></div>
-      {  !error && !loading && user && page*PAGE_SIZE < user.public_repos && <div class="d-flex justify-content-center"><button className="btn btn-light" onClick={this.loadmore}>Load More</button></div>}
+ <div className="container-fluid">    <div className="row "> { this.state.show && repos.length>0 && !error && repos.map(repo=><RepoCard key={repo.id} repo={repo}/>)}</div></div>
+     { this.state.show && !error && !loading && user && page*PAGE_SIZE < user.public_repos && <div class="d-flex justify-content-center"><button className="btn btn-light" onClick={this.loadmore}>Load More</button></div>}
       <Sugar/>
       </div>
      

@@ -1,10 +1,19 @@
-import React from 'react';
+import React from 'react'
+import RepoCard from '../RepoCard/Repo-card'
 
-const langRepo = (props) => {
-    console.log(props)
+const langRepo = ({repos,lang}) => {
+    
+    const x=repos[0]
+    let filtered
+    if(x){
+    filtered=x.filter(repo=>repo.language===lang)
+    }
+
+    
+
     return (
         <div>
-            hi
+       <div className="container-fluid"> <h3>REPOSITRIES FROM LANGUAGE:{lang}</h3>   <div className="row "> {  lang!==null  && filtered.map(repo=><RepoCard key={repo.id} repo={repo}/>)}</div></div>
         </div>
     );
 };

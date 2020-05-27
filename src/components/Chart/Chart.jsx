@@ -73,7 +73,6 @@ class Chart extends Component {
         if(array[0]){
            
            const b=array[0]._model.label
-            console.log(b)
             this.setState({
                 language:b
             })
@@ -84,7 +83,6 @@ class Chart extends Component {
 
 
     render() {
-        console.log(this.state)
         return (
             <div>
             <LangRepo repos={this.state.repos} lang={this.state.language}/>

@@ -2,7 +2,6 @@
     position: absolute;
     top: 160px;
     left: 590px;     
-    background-color:whitesmokes;
     transition: transform 0.5s;
     z-index: 1000;
     height: 29rem;

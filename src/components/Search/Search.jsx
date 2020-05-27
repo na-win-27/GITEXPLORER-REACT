@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './Search.css'
 class Search extends Component {
+    constructor(props){
+        super(props);
+        this.myRef=React.createRef();
+    }
     state={
         Username:"na-win-27",
     }
@@ -10,7 +14,12 @@ class Search extends Component {
         this.setState({Username:e.target.value})
     }
 
+    componentDidMount(){
+    
+    }
+
     render() {
+        console.log(this.myRef)
         const {fetchData}=this.props
         const {Username}=this.state
         return (
@@ -20,7 +29,7 @@ class Search extends Component {
             <div className="row">
             <div className="col-8 offset-2 text-center">
             <div className="row">
-            <div className="col-9">
+            <div className="col-8 ">
             <input className="form-control" 
             value={Username}
             onChange={this.handleChange}
@@ -32,6 +41,7 @@ class Search extends Component {
             <button onClick={()=>{
                 fetchData(Username)
             }}
+            ref={this.myRef}
              className="btn btn-large btn-dark">Search</button>
             </div>
             </div>

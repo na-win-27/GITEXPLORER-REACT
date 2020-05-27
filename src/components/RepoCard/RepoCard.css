@@ -22,3 +22,7 @@
 .link:hover{
     color: #888888;
 }
+
+.ove{
+    overflow: hidden;
+}
