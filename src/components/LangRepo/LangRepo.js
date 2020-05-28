@@ -1,5 +1,6 @@
 import React from 'react'
 import RepoCard from '../RepoCard/Repo-card'
+import './LangRepo.css'
 
 const langRepo = ({repos,lang}) => {
     
@@ -13,6 +14,7 @@ const langRepo = ({repos,lang}) => {
 
     return (
         <div>
+        <div className="langu"></div>
        <div className="container-fluid"> <h3>REPOSITRIES FROM LANGUAGE:{lang}</h3>   <div className="row "> {  lang!==null  && filtered.map(repo=><RepoCard key={repo.id} repo={repo}/>)}</div></div>
         </div>
     );

@@ -4,6 +4,7 @@ import User from './components/User/User'
 import RepoCard from './components/RepoCard/Repo-card'
 import { Sugar } from 'react-preloaders';
 import Chart from './components/Chart/Chart'
+import HeadRoom from 'react-headroom'
 const PAGE_SIZE=20;
 class App extends Component {
   state={
@@ -84,7 +85,12 @@ fetchRepos=async(username)=>{
     const {repos,user,error,loading,page}=this.state    
     return (
       <div>
-        <Search fetchData={this.fetchData}/>
+       <HeadRoom style={{
+        webkitTransition: 'all .5s ease-in-out',
+        mozTransition: 'all .5s ease-in-out',
+        oTransition: 'all .5s ease-in-out',
+        transition: 'all .5s ease-in-out',
+      }}  ><Search fetchData={this.fetchData}/></HeadRoom>
         {loading &&
         <p>loading</p>
         }
@@ -102,6 +108,11 @@ fetchRepos=async(username)=>{
        !this.state.show &&  user &&
        <div className="d-flex justify-content-center"><button className="btn btn-light" onClick={()=>this.setState({show:true})}>Show Repositories</button></div>
      }
+
+     {
+      this.state.show &&  user &&
+      <div className="d-flex justify-content-center"><button className="btn btn-light" onClick={()=>this.setState({show:false})}>Hide Repositories</button></div>
+    }
       
 
  <div className="container-fluid">    <div className="row "> { this.state.show && repos.length>0 && !error && repos.map(repo=><RepoCard key={repo.id} repo={repo}/>)}</div></div>
