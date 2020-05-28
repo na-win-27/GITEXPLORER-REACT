@@ -10,6 +10,7 @@ class Chart extends Component {
     
     
     state={
+        show:true,
         repos:[],
         dataset:[{data:[]}],
         pagec:0,
@@ -85,7 +86,7 @@ class Chart extends Component {
     render() {
         return (
             <div>
-            <LangRepo repos={this.state.repos} lang={this.state.language}/>
+           { !this.props.show && <LangRepo show={this.state.show} repos={this.state.repos} lang={this.state.language}/>}
             <div className="chart">
             {this.state.hmap && 
                
@@ -115,7 +116,7 @@ class Chart extends Component {
                         },
                         title:{
                             display:true,
-                            text:"LANGUAGES",
+                            text:"PROGRAMMING LANGUAGES",
                             padding:10,
 
                         },

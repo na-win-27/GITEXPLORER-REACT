@@ -101,7 +101,7 @@ fetchRepos=async(username)=>{
         !error && !loading && user && <User user={user}/>
       }
       {
-        !error && !loading  && user &&<Chart user={user} />
+        !error && !loading  && user &&<Chart show={this.state.show} user={user} />
      }
 
      {
