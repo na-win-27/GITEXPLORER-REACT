@@ -54,6 +54,7 @@ class Chart extends Component {
                    else{
                        map[re.language]=1
                    } 
+        
                    
                })
            // console.log(map) 
